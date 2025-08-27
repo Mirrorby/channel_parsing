@@ -21,7 +21,7 @@ EXCLUDE = []  # например: ["вакансия", "резюме"] — чт�
 API_ID       = int(os.environ["API_ID"])
 API_HASH     = os.environ["API_HASH"]
 STRING_SESS  = os.environ["STRING_SESSION"]
-GSHEET_TITLE = os.environ.get("GSHEET_TITLE", "Telegram Posts Inbox")
+GSHEET_TITLE = os.environ.get("GSHEET_TITLE", "Телеграм посты поставщиков")
 SHEET_NAME   = os.environ.get("SHEET_NAME", "Posts")
 GCP_JSON     = os.environ.get("GCP_JSON_PATH", "gcp_sa.json")
 
