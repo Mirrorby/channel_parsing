@@ -8,10 +8,10 @@ from telethon.sessions import StringSession
 CHANNELS = [
   # впиши сюда каналы для чтения (как пользователь, ты должен в них состоять):
   # варианты: "@channel_username", "https://t.me/some_public_channel", или ID (например: -1001234567890)
-  "https://t.me/MELOCHOV",
-  "https://t.me/ABKS07",
-  "https://t.me/jjsbossj",
-  "https://t.me/toolsSADA"
+  "@MELOCHOV",
+  "@ABKS07",
+  "@jjsbossj",
+  "@toolsSADA"
 ]
 
 INCLUDE = []  # например: ["скидка", "акция"] — если оставить пустым, ловим всё
