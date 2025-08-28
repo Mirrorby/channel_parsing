@@ -22,13 +22,13 @@ jobs:
           pip install telethon==1.36.0 gspread oauth2client
 
       # БЕЗОПАСНАЯ ДИАГНОСТИКА: показываем только длины секретов (значения не печатаем)
-      - name: Debug env lengths (safe)
+      - name: Debug env values (safe)
         run: |
-          echo "API_ID length: ${#API_ID}"
+          echo "API_ID: ${API_ID}"
           echo "API_HASH length: ${#API_HASH}"
           echo "STRING_SESSION length: ${#STRING_SESSION}"
-          echo "GSHEET_TITLE length: ${#GSHEET_TITLE}"
-          echo "SHEET_NAME length: ${#SHEET_NAME}"
+          echo "GSHEET_TITLE: ${GSHEET_TITLE}"
+          echo "SHEET_NAME: ${SHEET_NAME}"
         env:
           API_ID: ${{ secrets.API_ID }}
           API_HASH: ${{ secrets.API_HASH }}
