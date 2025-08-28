@@ -4,10 +4,37 @@ from oauth2client.service_account import ServiceAccountCredentials
 from telethon import TelegramClient
 from telethon.sessions import StringSession
 
+# ---------- helpers for env ----------
+def _req(name: str) -> str:
+    v = os.environ.get(name, "")
+    v = (v or "").strip()
+    if not v:
+        raise RuntimeError(f"ENV '{name}' is empty or missing")
+    return v
+
+def _opt(name: str, default: str) -> str:
+    return (os.environ.get(name, default) or "").strip()
+
+# ---------- read env ----------
+API_ID = int(_req("API_ID"))
+API_HASH = _req("API_HASH")
+RAW_SESSION = _req("STRING_SESSION")
+STRING_SESS = RAW_SESSION.strip()
+
+print(f"[diag] API_ID = {API_ID}")
+print(f"[diag] API_HASH length = {len(API_HASH)}")
+print(f"[diag] STRING_SESSION len = {len(STRING_SESS)}")
+print(f"[diag] STRING_SESSION preview = {STRING_SESS[:6]}...{STRING_SESS[-6:]}")
+
+GSHEET_TITLE = _opt("GSHEET_TITLE", "Telegram Posts Inbox")
+SHEET_NAME   = _opt("SHEET_NAME", "Posts")
+GCP_JSON     = _opt("GCP_JSON_PATH", "gcp_sa.json")
+
+# ---------- rest of your code stays the same ----------
+
 # ============= Каналы и фильтры =============
 CHANNELS = [
     # РЕКОМЕНДУЕМАЯ форма: @username или числовой id (-100...)
-    # Можно оставить t.me/..., мы их нормализуем
     "@MELOCHOV",
     "@ABK507",
     "@jjsbossj",
